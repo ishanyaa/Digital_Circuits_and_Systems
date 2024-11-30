@@ -59,6 +59,6 @@ $monitor("Time = %t, d = %b, q = %b", $time, d, q);
 $finish;
 
 end
-endmodulea
+endmodule
 
 
