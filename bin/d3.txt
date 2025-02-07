@@ -1,0 +1,66 @@
+/* Divide the Clock Frequency by 3 */
+
+module d3(input clk, reset, output q);
+
+reg [1:0] s, ns;
+
+parameter s0 = 2'b00;
+parameter s1 = 2'b01; 
+parameter s2 = 2'b10;
+
+
+always @ (posedge clk or negedge reset)
+
+if (reset) s <= s0;
+else s <= ns;
+
+always @(*)
+case (s)
+
+s0: ns = s1;
+s1: ns = s2;
+s2: ns = s0;
+default: ns = s0;
+endcase
+
+assign q = (state == s0);
+endmodule
+
+
+module tb_d3;
+reg clk, reset;
+wire q;
+
+d3 uut(.clk(clk), .reset(reset), .q(q));
+
+initial begin
+clk = 0;
+forever #5 clk = ~clk;
+end
+
+initial begin
+$dumpfile("d3.vcd");
+$dumpvars(0, tb_d3);
+$monitor("Time = %t, clk = %b, reset = %b, q = %b", $time, clk, reset, q);
+
+#10;
+reset = 0;
+
+#10;
+reset = 1;
+
+#10;
+reset = 0;
+#10;
+reset = 1;
+#10;
+reset = 0;
+#10;
+reset = 1;
+
+$finish;
+end
+endmodule
+
+
+

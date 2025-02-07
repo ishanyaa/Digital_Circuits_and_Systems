@@ -1,0 +1,48 @@
+#! /c/iverilog/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_01203810 .scope module, "tb_m2" "tb_m2" 2 9;
+ .timescale 0 0;
+v010930B8_0 .var "in", 3 0;
+v01093110_0 .net "out", 4 0, L_010932E8; 1 drivers
+S_01203898 .scope module, "uut" "m2" 2 13, 2 3, S_01203810;
+ .timescale 0 0;
+v01093F88_0 .net *"_s0", 4 0, L_01093168; 1 drivers
+v01203DD8_0 .net *"_s3", 0 0, C4<0>; 1 drivers
+v01203E30_0 .net *"_s6", 3 0, L_01093228; 1 drivers
+v01203E88_0 .net *"_s8", 0 0, C4<0>; 1 drivers
+v01203EE0_0 .net "in", 3 0, v010930B8_0; 1 drivers
+v01093060_0 .alias "out", 4 0, v01093110_0;
+L_01093168 .concat [ 4 1 0 0], v010930B8_0, C4<0>;
+L_01093228 .part L_01093168, 0, 4;
+L_010932E8 .concat [ 1 4 0 0], C4<0>, L_01093228;
+    .scope S_01203810;
+T_0 ;
+    %vpi_call 2 17 "$dumpfile", "m2.vcd";
+    %vpi_call 2 18 "$dumpvars", 1'sb0, S_01203810;
+    %vpi_call 2 20 "$monitor", "Time %t, in = %b, out = %b", $time, v010930B8_0, v01093110_0;
+    %delay 10, 0;
+    %movi 8, 1, 4;
+    %set/v v010930B8_0, 8, 4;
+    %delay 10, 0;
+    %movi 8, 2, 4;
+    %set/v v010930B8_0, 8, 4;
+    %delay 10, 0;
+    %movi 8, 4, 4;
+    %set/v v010930B8_0, 8, 4;
+    %delay 10, 0;
+    %movi 8, 8, 4;
+    %set/v v010930B8_0, 8, 4;
+    %delay 10, 0;
+    %set/v v010930B8_0, 1, 4;
+    %vpi_call 2 30 "$finish";
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "m2.v";

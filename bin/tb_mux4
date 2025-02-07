@@ -1,0 +1,78 @@
+#! /c/iverilog/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_010ED8F0 .scope module, "tb_mux4" "tb_mux4" 2 19;
+ .timescale 0 0;
+v010EA6C0_0 .var "d0", 0 0;
+v010EA770_0 .var "d1", 0 0;
+v010EA508_0 .var "d2", 0 0;
+v010EA038_0 .var "d3", 0 0;
+v010EA090_0 .var "s0", 0 0;
+v010EA718_0 .var "s1", 0 0;
+v010EA3A8_0 .net "y", 0 0, L_010EA8E8; 1 drivers
+S_010ED070 .scope module, "uut" "mux4" 2 25, 2 1, S_010ED8F0;
+ .timescale 0 0;
+L_010E3868 .functor NOT 1, v010EA090_0, C4<0>, C4<0>, C4<0>;
+L_010E38D8 .functor NOT 1, v010EA718_0, C4<0>, C4<0>, C4<0>;
+L_010EED90 .functor AND 1, v010EA6C0_0, L_010E38D8, L_010E3868, C4<1>;
+L_010EEE70 .functor AND 1, v010EA770_0, L_010E38D8, v010EA090_0, C4<1>;
+L_010EEEE0 .functor AND 1, v010EA508_0, v010EA718_0, L_010E3868, C4<1>;
+L_010EEF50 .functor AND 1, v010EA038_0, v010EA718_0, v010EA090_0, C4<1>;
+L_010EA8E8 .functor OR 1, L_010EED90, L_010EEE70, L_010EEEE0, L_010EEF50;
+v010E4BD0_0 .net "and0", 0 0, L_010EED90; 1 drivers
+v010E4C28_0 .net "and1", 0 0, L_010EEE70; 1 drivers
+v010E4C80_0 .net "and2", 0 0, L_010EEEE0; 1 drivers
+v010E3810_0 .net "and3", 0 0, L_010EEF50; 1 drivers
+v010EA668_0 .net "d0", 0 0, v010EA6C0_0; 1 drivers
+v010EA560_0 .net "d1", 0 0, v010EA770_0; 1 drivers
+v010EA400_0 .net "d2", 0 0, v010EA508_0; 1 drivers
+v010EA458_0 .net "d3", 0 0, v010EA038_0; 1 drivers
+v010EA140_0 .net "ns0", 0 0, L_010E3868; 1 drivers
+v010EA4B0_0 .net "ns1", 0 0, L_010E38D8; 1 drivers
+v010EA2A0_0 .net "s0", 0 0, v010EA090_0; 1 drivers
+v010EA5B8_0 .net "s1", 0 0, v010EA718_0; 1 drivers
+v010EA610_0 .alias "y", 0 0, v010EA3A8_0;
+    .scope S_010ED8F0;
+T_0 ;
+    %vpi_call 2 29 "$dumpfile", "mux4.vcd";
+    %vpi_call 2 30 "$dumpvars", 1'sb0, S_010ED8F0;
+    %vpi_call 2 33 "$monitor", "Time %t, d0 = %b, d1 = %b, d2 = %b, d3 = %b, s0 = %b, s1 = %b, y = %b", $time, v010EA6C0_0, v010EA770_0, v010EA508_0, v010EA038_0, v010EA090_0, v010EA718_0, v010EA3A8_0;
+    %delay 10, 0;
+    %set/v v010EA6C0_0, 1, 1;
+    %set/v v010EA770_0, 0, 1;
+    %set/v v010EA508_0, 0, 1;
+    %set/v v010EA038_0, 0, 1;
+    %set/v v010EA090_0, 0, 1;
+    %set/v v010EA718_0, 0, 1;
+    %delay 10, 0;
+    %set/v v010EA6C0_0, 0, 1;
+    %set/v v010EA770_0, 1, 1;
+    %set/v v010EA508_0, 0, 1;
+    %set/v v010EA038_0, 0, 1;
+    %set/v v010EA090_0, 0, 1;
+    %set/v v010EA718_0, 1, 1;
+    %delay 10, 0;
+    %set/v v010EA6C0_0, 0, 1;
+    %set/v v010EA770_0, 0, 1;
+    %set/v v010EA508_0, 1, 1;
+    %set/v v010EA038_0, 0, 1;
+    %set/v v010EA090_0, 1, 1;
+    %set/v v010EA718_0, 0, 1;
+    %delay 10, 0;
+    %set/v v010EA6C0_0, 0, 1;
+    %set/v v010EA770_0, 0, 1;
+    %set/v v010EA508_0, 0, 1;
+    %set/v v010EA038_0, 1, 1;
+    %set/v v010EA090_0, 1, 1;
+    %set/v v010EA718_0, 1, 1;
+    %vpi_call 2 42 "$finish";
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "mux4.v";

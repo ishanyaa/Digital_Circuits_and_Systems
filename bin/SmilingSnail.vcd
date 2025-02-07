@@ -1,0 +1,154 @@
+$date
+	Sat Nov 30 21:36:40 2024
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module tb_SmilingSnail $end
+$var wire 1 ! smile $end
+$var reg 1 " clk $end
+$var reg 1 # number $end
+$var reg 1 $ reset $end
+$scope module uut $end
+$var wire 1 % clk $end
+$var wire 1 & number $end
+$var wire 1 ' reset $end
+$var wire 1 ! smile $end
+$var reg 2 ( nextstate [1:0] $end
+$var reg 2 ) state [1:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b0 )
+b0 (
+1'
+0&
+0%
+1$
+0#
+0"
+0!
+$end
+#5
+1"
+1%
+#10
+0"
+0%
+0$
+0'
+#15
+1"
+1%
+#20
+b1 (
+0"
+0%
+1#
+1&
+#25
+b10 (
+b1 )
+1"
+1%
+#30
+0"
+0%
+#35
+b10 )
+1"
+1%
+#40
+0"
+0%
+#45
+1"
+1%
+#50
+0"
+0%
+#55
+1"
+1%
+#60
+b11 (
+0"
+0%
+0#
+0&
+#65
+b0 (
+b11 )
+1"
+1%
+#70
+0"
+0%
+#75
+b0 )
+1"
+1%
+#80
+b1 (
+0"
+0%
+1#
+1&
+#85
+b10 (
+b1 )
+1"
+1%
+#90
+b1 (
+b0 )
+0"
+0%
+1$
+1'
+#95
+1"
+1%
+#100
+0"
+0%
+0$
+0'
+#105
+b10 (
+b1 )
+1"
+1%
+#110
+0"
+0%
+#115
+b10 )
+1"
+1%
+#120
+0"
+0%
+#125
+1"
+1%
+#130
+0"
+0%
+#135
+1"
+1%
+#140
+0"
+0%
+#145
+1"
+1%
+#150
+0"
+0%

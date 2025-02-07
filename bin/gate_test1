@@ -1,0 +1,72 @@
+#! /c/iverilog/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_010F3620 .scope module, "tb_gate" "tb_gate" 2 12;
+ .timescale 0 0;
+v010F2C78_0 .var "A", 0 0;
+v010F2CD0_0 .var "B", 0 0;
+v010FEDB0_0 .var "C", 0 0;
+v010FEE40_0 .net "Y_and", 0 0, L_010FEEF0; 1 drivers
+v010FEE98_0 .net "Y_or", 0 0, L_010FEF60; 1 drivers
+S_010F7070 .scope module, "u1" "and3" 2 18, 2 2, S_010F3620;
+ .timescale 0 0;
+L_010FEEF0 .functor AND 1, v010F2C78_0, v010F2CD0_0, v010FEDB0_0, C4<1>;
+v010F4C58_0 .net "A", 0 0, v010F2C78_0; 1 drivers
+v010F4CB0_0 .net "B", 0 0, v010F2CD0_0; 1 drivers
+v010F2BC8_0 .net "C", 0 0, v010FEDB0_0; 1 drivers
+v010F2C20_0 .alias "Y", 0 0, v010FEE40_0;
+S_010F7DB8 .scope module, "u2" "or3" 2 21, 2 7, S_010F3620;
+ .timescale 0 0;
+L_010FEF60 .functor OR 1, v010F2C78_0, v010F2CD0_0, v010FEDB0_0, C4<0>;
+v010FC420_0 .alias "A", 0 0, v010F4C58_0;
+v010F36A8_0 .alias "B", 0 0, v010F4CB0_0;
+v010F3700_0 .alias "C", 0 0, v010F2BC8_0;
+v010F4C00_0 .alias "Y", 0 0, v010FEE98_0;
+    .scope S_010F3620;
+T_0 ;
+    %vpi_call 2 25 "$dumpfile", "gate_test.vcd";
+    %vpi_call 2 26 "$dumpvars", 1'sb0, S_010F3620;
+    %vpi_call 2 29 "$monitor", "Time: %0d | A=%b B=%b C=%b | AND Output=%b OR Output=%b", $time, v010F2C78_0, v010F2CD0_0, v010FEDB0_0, v010FEE40_0, v010FEE98_0;
+    %set/v v010F2C78_0, 0, 1;
+    %set/v v010F2CD0_0, 0, 1;
+    %set/v v010FEDB0_0, 0, 1;
+    %delay 10, 0;
+    %set/v v010F2C78_0, 0, 1;
+    %set/v v010F2CD0_0, 0, 1;
+    %set/v v010FEDB0_0, 1, 1;
+    %delay 10, 0;
+    %set/v v010F2C78_0, 0, 1;
+    %set/v v010F2CD0_0, 1, 1;
+    %set/v v010FEDB0_0, 0, 1;
+    %delay 10, 0;
+    %set/v v010F2C78_0, 0, 1;
+    %set/v v010F2CD0_0, 1, 1;
+    %set/v v010FEDB0_0, 1, 1;
+    %delay 10, 0;
+    %set/v v010F2C78_0, 1, 1;
+    %set/v v010F2CD0_0, 0, 1;
+    %set/v v010FEDB0_0, 0, 1;
+    %delay 10, 0;
+    %set/v v010F2C78_0, 1, 1;
+    %set/v v010F2CD0_0, 0, 1;
+    %set/v v010FEDB0_0, 1, 1;
+    %delay 10, 0;
+    %set/v v010F2C78_0, 1, 1;
+    %set/v v010F2CD0_0, 1, 1;
+    %set/v v010FEDB0_0, 0, 1;
+    %delay 10, 0;
+    %set/v v010F2C78_0, 1, 1;
+    %set/v v010F2CD0_0, 1, 1;
+    %set/v v010FEDB0_0, 1, 1;
+    %delay 10, 0;
+    %vpi_call 2 41 "$finish";
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "gate_test1.v";

@@ -1,0 +1,84 @@
+#! /c/iverilog/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_011D89D8 .scope module, "tb_mux4b" "tb_mux4b" 2 10;
+ .timescale 0 0;
+v011D9E08_0 .var "d0", 3 0;
+v011D9E60_0 .var "d1", 3 0;
+v011DE1A8_0 .var "d2", 3 0;
+v011DE200_0 .var "d3", 3 0;
+v011DE258_0 .var "s", 1 0;
+v011DE2B0_0 .net "y", 3 0, L_011DE388; 1 drivers
+S_011D9368 .scope module, "uut" "mux4b" 2 15, 2 1, S_011D89D8;
+ .timescale 0 0;
+v011D7D88_0 .net *"_s1", 0 0, L_011DE9B8; 1 drivers
+v011D7DE0_0 .net *"_s3", 0 0, L_011DE330; 1 drivers
+v011D7E38_0 .net *"_s4", 3 0, L_011DE800; 1 drivers
+v011D2CA0_0 .net *"_s7", 0 0, L_011DE858; 1 drivers
+v011D2CF8_0 .net *"_s8", 3 0, L_011DE648; 1 drivers
+v011D2D50_0 .net "d0", 3 0, v011D9E08_0; 1 drivers
+v011D2DA8_0 .net "d1", 3 0, v011D9E60_0; 1 drivers
+v011D9CA8_0 .net "d2", 3 0, v011DE1A8_0; 1 drivers
+v011D9D00_0 .net "d3", 3 0, v011DE200_0; 1 drivers
+v011D9D58_0 .net "s", 1 0, v011DE258_0; 1 drivers
+v011D9DB0_0 .alias "y", 3 0, v011DE2B0_0;
+L_011DE9B8 .part v011DE258_0, 1, 1;
+L_011DE330 .part v011DE258_0, 0, 1;
+L_011DE800 .functor MUXZ 4, v011DE1A8_0, v011DE200_0, L_011DE330, C4<>;
+L_011DE858 .part v011DE258_0, 0, 1;
+L_011DE648 .functor MUXZ 4, v011D9E08_0, v011D9E60_0, L_011DE858, C4<>;
+L_011DE388 .functor MUXZ 4, L_011DE648, L_011DE800, L_011DE9B8, C4<>;
+    .scope S_011D89D8;
+T_0 ;
+    %vpi_call 2 19 "$dumpfile", "mux4b.vcd";
+    %vpi_call 2 20 "$dumpvars", 1'sb0, S_011D89D8;
+    %vpi_call 2 22 "$monitor", "Time %t, d0 = %b, d1 = %b, d2 = %b, d3 = %b, y = %b", $time, v011D9E08_0, v011D9E60_0, v011DE1A8_0, v011DE200_0, v011DE258_0, v011DE2B0_0;
+    %delay 10, 0;
+    %set/v v011D9E08_0, 0, 4;
+    %movi 8, 1, 4;
+    %set/v v011D9E60_0, 8, 4;
+    %movi 8, 2, 4;
+    %set/v v011DE1A8_0, 8, 4;
+    %movi 8, 3, 4;
+    %set/v v011DE200_0, 8, 4;
+    %set/v v011DE258_0, 0, 2;
+    %delay 10, 0;
+    %set/v v011D9E08_0, 0, 4;
+    %movi 8, 1, 4;
+    %set/v v011D9E60_0, 8, 4;
+    %movi 8, 2, 4;
+    %set/v v011DE1A8_0, 8, 4;
+    %movi 8, 3, 4;
+    %set/v v011DE200_0, 8, 4;
+    %movi 8, 1, 2;
+    %set/v v011DE258_0, 8, 2;
+    %delay 10, 0;
+    %set/v v011D9E08_0, 0, 4;
+    %movi 8, 1, 4;
+    %set/v v011D9E60_0, 8, 4;
+    %movi 8, 2, 4;
+    %set/v v011DE1A8_0, 8, 4;
+    %movi 8, 3, 4;
+    %set/v v011DE200_0, 8, 4;
+    %movi 8, 2, 2;
+    %set/v v011DE258_0, 8, 2;
+    %delay 10, 0;
+    %set/v v011D9E08_0, 0, 4;
+    %movi 8, 1, 4;
+    %set/v v011D9E60_0, 8, 4;
+    %movi 8, 2, 4;
+    %set/v v011DE1A8_0, 8, 4;
+    %movi 8, 3, 4;
+    %set/v v011DE200_0, 8, 4;
+    %set/v v011DE258_0, 1, 2;
+    %vpi_call 2 29 "$finish";
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "mux4b.v";

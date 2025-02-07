@@ -1,0 +1,39 @@
+// Q1 A2
+
+module multiply_by_2 (
+    input [3:0] A,           // 4-bit input
+    output reg [4:0] result  // 5-bit output to accommodate overflow
+);
+    
+    always @(*) begin
+        result = A << 1;      // Multiply by 2 using left shift
+    end
+
+endmodule
+
+module test_multiply_by_2;
+    reg [3:0] A;
+    wire [4:0] result;
+
+    // Instantiate the multiply_by_2 module
+    multiply_by_2 my_multiplier (.A(A), .result(result));
+
+    initial begin
+        $dumpfile("multiply_by_2.vcd"); // VCD file for GTKWave
+        $dumpvars(0, test_multiply_by_2); // Dump all variables for simulation
+
+        // Monitor statement to print the output to the console
+        $monitor("Time = %0d : A = %b | result = %b", 
+                  $time, A, result);
+
+        // Test cases
+        A = 4'b0000; #10; // 0 * 2
+        A = 4'b0001; #10; // 1 * 2
+        A = 4'b0010; #10; // 2 * 2
+        A = 4'b0100; #10; // 4 * 2
+        A = 4'b1000; #10; // 8 * 2
+        A = 4'b1111; #10; // 15 * 2 (will overflow)
+
+        $finish;
+    end
+endmodule

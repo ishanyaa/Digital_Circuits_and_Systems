@@ -1,0 +1,120 @@
+$date
+	Fri Sep 27 12:10:05 2024
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module tb_mux_4to1 $end
+$var wire 1 ! Y $end
+$var reg 1 " I0 $end
+$var reg 1 # I1 $end
+$var reg 1 $ I2 $end
+$var reg 1 % I3 $end
+$var reg 2 & S [1:0] $end
+$scope module mux $end
+$var wire 1 ' I0 $end
+$var wire 1 ( I1 $end
+$var wire 1 ) I2 $end
+$var wire 1 * I3 $end
+$var wire 2 + S [1:0] $end
+$var wire 1 , S0_bar $end
+$var wire 1 - S1_bar $end
+$var wire 1 ! Y $end
+$var wire 1 . Y0 $end
+$var wire 1 / Y1 $end
+$var wire 1 0 Y2 $end
+$var wire 1 1 Y3 $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+01
+00
+0/
+1.
+1-
+1,
+b0 +
+0*
+0)
+0(
+1'
+b0 &
+0%
+0$
+0#
+1"
+1!
+$end
+#10
+0,
+1/
+1!
+0.
+b1 &
+b1 +
+1#
+1(
+0"
+0'
+#20
+10
+1,
+0-
+1!
+0/
+b10 &
+b10 +
+1$
+1)
+0#
+0(
+#30
+0,
+11
+1!
+00
+b11 &
+b11 +
+1%
+1*
+0$
+0)
+#40
+1.
+1,
+1-
+1!
+01
+b0 &
+b0 +
+0%
+0*
+1$
+1)
+1"
+1'
+#50
+0!
+0.
+0,
+b1 &
+b1 +
+#60
+1!
+10
+1,
+0-
+b10 &
+b10 +
+#70
+0!
+00
+0,
+b11 &
+b11 +
+#80

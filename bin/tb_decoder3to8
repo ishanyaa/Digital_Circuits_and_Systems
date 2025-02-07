@@ -1,0 +1,91 @@
+#! /c/iverilog/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0117E6E8 .scope module, "tb_decoder3to8" "tb_decoder3to8" 2 22;
+ .timescale 0 0;
+v01178D80_0 .var "a0", 0 0;
+v01178F90_0 .var "a1", 0 0;
+v01178FE8_0 .var "a2", 0 0;
+v010704B0_0 .net "y0", 0 0, L_01174E08; 1 drivers
+v01070A30_0 .net "y1", 0 0, L_01172CD8; 1 drivers
+v010708D0_0 .net "y2", 0 0, L_01172D48; 1 drivers
+v01070980_0 .net "y3", 0 0, L_01174E78; 1 drivers
+v010702A0_0 .net "y4", 0 0, L_01071270; 1 drivers
+v010707C8_0 .net "y5", 0 0, L_01071468; 1 drivers
+v01070A88_0 .net "y6", 0 0, L_01071158; 1 drivers
+v01070198_0 .net "y7", 0 0, L_01071120; 1 drivers
+S_0117E2A8 .scope module, "uut" "decoder3to8" 2 27, 2 3, S_0117E6E8;
+ .timescale 0 0;
+L_0117A378 .functor NOT 1, v01178FE8_0, C4<0>, C4<0>, C4<0>;
+L_0117A3E8 .functor NOT 1, v01178F90_0, C4<0>, C4<0>, C4<0>;
+L_01174D98 .functor NOT 1, v01178D80_0, C4<0>, C4<0>, C4<0>;
+L_01174E08 .functor AND 1, L_0117A378, L_0117A3E8, L_01174D98, C4<1>;
+L_01172CD8 .functor AND 1, L_0117A378, L_0117A3E8, v01178D80_0, C4<1>;
+L_01172D48 .functor AND 1, L_0117A378, v01178F90_0, L_01174D98, C4<1>;
+L_01174E78 .functor AND 1, L_0117A378, v01178F90_0, v01178D80_0, C4<1>;
+L_01071270 .functor AND 1, v01178FE8_0, L_0117A3E8, L_01174D98, C4<1>;
+L_01071468 .functor AND 1, v01178FE8_0, L_0117A3E8, v01178D80_0, C4<1>;
+L_01071158 .functor AND 1, v01178FE8_0, v01178F90_0, L_01174D98, C4<1>;
+L_01071120 .functor AND 1, v01178FE8_0, v01178F90_0, v01178D80_0, C4<1>;
+v011790F0_0 .net "a0", 0 0, v01178D80_0; 1 drivers
+v01178E30_0 .net "a1", 0 0, v01178F90_0; 1 drivers
+v01179300_0 .net "a2", 0 0, v01178FE8_0; 1 drivers
+v01179250_0 .net "na0", 0 0, L_01174D98; 1 drivers
+v01178EE0_0 .net "na1", 0 0, L_0117A3E8; 1 drivers
+v01178F38_0 .net "na2", 0 0, L_0117A378; 1 drivers
+v011792A8_0 .alias "y0", 0 0, v010704B0_0;
+v01179040_0 .alias "y1", 0 0, v01070A30_0;
+v01179358_0 .alias "y2", 0 0, v010708D0_0;
+v01178C78_0 .alias "y3", 0 0, v01070980_0;
+v01178CD0_0 .alias "y4", 0 0, v010702A0_0;
+v01179148_0 .alias "y5", 0 0, v010707C8_0;
+v011791F8_0 .alias "y6", 0 0, v01070A88_0;
+v01178D28_0 .alias "y7", 0 0, v01070198_0;
+    .scope S_0117E6E8;
+T_0 ;
+    %vpi_call 2 33 "$dumpfile", "decoder3to8.vcd";
+    %vpi_call 2 34 "$dumpvars", 1'sb0, S_0117E6E8;
+    %vpi_call 2 37 "$monitor", "Time %t, a2 = %b, a1 = %b, a0 = %b, y0 = %b, y1 = %b, y2 = %b, y3 = %b, y4 = %b, y5 = %b, y6 = %b, y7 = %b", $time, v01178FE8_0, v01178F90_0, v01178D80_0, v010704B0_0, v01070A30_0, v010708D0_0, v01070980_0, v010702A0_0, v010707C8_0, v01070A88_0, v01070198_0;
+    %delay 10, 0;
+    %set/v v01178FE8_0, 0, 1;
+    %set/v v01178F90_0, 0, 1;
+    %set/v v01178D80_0, 0, 1;
+    %delay 10, 0;
+    %set/v v01178FE8_0, 0, 1;
+    %set/v v01178F90_0, 0, 1;
+    %set/v v01178D80_0, 1, 1;
+    %delay 10, 0;
+    %set/v v01178FE8_0, 0, 1;
+    %set/v v01178F90_0, 1, 1;
+    %set/v v01178D80_0, 0, 1;
+    %delay 10, 0;
+    %set/v v01178FE8_0, 0, 1;
+    %set/v v01178F90_0, 1, 1;
+    %set/v v01178D80_0, 1, 1;
+    %delay 10, 0;
+    %set/v v01178FE8_0, 1, 1;
+    %set/v v01178F90_0, 0, 1;
+    %set/v v01178D80_0, 0, 1;
+    %delay 10, 0;
+    %set/v v01178FE8_0, 1, 1;
+    %set/v v01178F90_0, 0, 1;
+    %set/v v01178D80_0, 1, 1;
+    %delay 10, 0;
+    %set/v v01178FE8_0, 1, 1;
+    %set/v v01178F90_0, 1, 1;
+    %set/v v01178D80_0, 0, 1;
+    %delay 10, 0;
+    %set/v v01178FE8_0, 1, 1;
+    %set/v v01178F90_0, 1, 1;
+    %set/v v01178D80_0, 1, 1;
+    %vpi_call 2 51 "$finish";
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "decoder3to8.v";

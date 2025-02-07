@@ -1,0 +1,86 @@
+$date
+	Thu Nov 21 14:58:25 2024
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module tb_fs $end
+$var wire 1 ! bo $end
+$var wire 1 " d $end
+$var reg 1 # a $end
+$var reg 1 $ b $end
+$var reg 1 % c $end
+$scope module uut $end
+$var wire 1 & a $end
+$var wire 1 ' b $end
+$var wire 1 ! bo $end
+$var wire 1 ( c $end
+$var wire 1 " d $end
+$var wire 1 ) na $end
+$var wire 1 * x $end
+$var wire 1 + y $end
+$var wire 1 , z $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+x,
+x+
+x*
+x)
+x(
+x'
+x&
+x%
+x$
+x#
+x"
+x!
+$end
+#1
+0!
+0+
+0*
+0,
+1)
+0"
+0%
+0(
+0$
+0'
+0#
+0&
+#11
+1!
+1+
+1"
+1*
+1%
+1(
+#12
+0%
+0(
+1$
+1'
+#13
+0"
+1,
+1%
+1(
+#14
+0!
+0+
+0*
+0,
+0)
+1"
+0%
+0(
+0$
+0'
+1#
+1&

@@ -1,0 +1,82 @@
+#! /c/iverilog/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_011AD3B0 .scope module, "test_full_adder_subtractor" "test_full_adder_subtractor" 2 31;
+ .timescale 0 0;
+v0108EC40_0 .var "A", 0 0;
+v0108EE50_0 .var "B", 0 0;
+v0108F218_0 .var "Bin", 0 0;
+v0108EA88_0 .net "Bout", 0 0, L_0108F9E8; 1 drivers
+v0108EAE0_0 .var "Cin", 0 0;
+v0108E8D0_0 .net "Cout", 0 0, L_011AAF08; 1 drivers
+v0108EB90_0 .net "Diff", 0 0, L_0108F908; 1 drivers
+v0108EEA8_0 .net "Sum", 0 0, L_011AD6E8; 1 drivers
+S_011AD190 .scope module, "FA" "full_adder" 2 36, 2 2, S_011AD3B0;
+ .timescale 0 0;
+L_011AD6B0 .functor XOR 1, v0108EC40_0, v0108EE50_0, C4<0>, C4<0>;
+L_011AD6E8 .functor XOR 1, L_011AD6B0, v0108EAE0_0, C4<0>, C4<0>;
+L_01092890 .functor AND 1, v0108EC40_0, v0108EE50_0, C4<1>, C4<1>;
+L_011AAED0 .functor AND 1, v0108EAE0_0, L_011AD6B0, C4<1>, C4<1>;
+L_011AAF08 .functor OR 1, L_01092890, L_011AAED0, C4<0>, C4<0>;
+v011ADC40_0 .net "A", 0 0, v0108EC40_0; 1 drivers
+v011ADE50_0 .net "A_and_B", 0 0, L_01092890; 1 drivers
+v011ADF00_0 .net "A_xor_B", 0 0, L_011AD6B0; 1 drivers
+v011AE060_0 .net "B", 0 0, v0108EE50_0; 1 drivers
+v011AE0B8_0 .net "Cin", 0 0, v0108EAE0_0; 1 drivers
+v011AE1C0_0 .net "Cin_and_AxorB", 0 0, L_011AAED0; 1 drivers
+v011AE110_0 .alias "Cout", 0 0, v0108E8D0_0;
+v0108EC98_0 .alias "Sum", 0 0, v0108EEA8_0;
+S_011ACFF8 .scope module, "FS" "full_subtractor" 2 39, 2 16, S_011AD3B0;
+ .timescale 0 0;
+L_0108F9B0 .functor XOR 1, v0108EC40_0, v0108EE50_0, C4<0>, C4<0>;
+L_0108F908 .functor XOR 1, L_0108F9B0, v0108F218_0, C4<0>, C4<0>;
+L_0108FAC8 .functor AND 1, L_0108FBE0, v0108EE50_0, C4<1>, C4<1>;
+L_0108FBE0 .functor NOT 1, v0108EC40_0, C4<0>, C4<0>, C4<0>;
+L_0108F940 .functor AND 1, v0108F218_0, L_0108FC18, C4<1>, C4<1>;
+L_0108FC18 .functor NOT 1, L_0108F9B0, C4<0>, C4<0>, C4<0>;
+L_0108F9E8 .functor OR 1, L_0108FAC8, L_0108F940, C4<0>, C4<0>;
+v011ADD48_0 .alias "A", 0 0, v011ADC40_0;
+v011ADDF8_0 .net "A_and_Binv", 0 0, L_0108FAC8; 1 drivers
+v011ADC98_0 .net "A_xor_B", 0 0, L_0108F9B0; 1 drivers
+v011ADFB0_0 .alias "B", 0 0, v011AE060_0;
+v011ADCF0_0 .net "Bin", 0 0, v0108F218_0; 1 drivers
+v011AE320_0 .net "Bin_and_AxorB", 0 0, L_0108F940; 1 drivers
+v011AE218_0 .alias "Bout", 0 0, v0108EA88_0;
+v011ADBE8_0 .alias "Diff", 0 0, v0108EB90_0;
+v011ADEA8_0 .net *"_s3", 0 0, L_0108FBE0; 1 drivers
+v011AE008_0 .net *"_s6", 0 0, L_0108FC18; 1 drivers
+    .scope S_011AD3B0;
+T_0 ;
+    %vpi_call 2 42 "$dumpfile", "full_adder_subtractor.vcd";
+    %vpi_call 2 43 "$dumpvars", 1'sb0, S_011AD3B0;
+    %set/v v0108EC40_0, 0, 1;
+    %set/v v0108EE50_0, 0, 1;
+    %set/v v0108EAE0_0, 0, 1;
+    %set/v v0108F218_0, 0, 1;
+    %delay 10, 0;
+    %set/v v0108EC40_0, 0, 1;
+    %set/v v0108EE50_0, 1, 1;
+    %set/v v0108EAE0_0, 1, 1;
+    %set/v v0108F218_0, 1, 1;
+    %delay 10, 0;
+    %set/v v0108EC40_0, 1, 1;
+    %set/v v0108EE50_0, 0, 1;
+    %set/v v0108EAE0_0, 1, 1;
+    %set/v v0108F218_0, 0, 1;
+    %delay 10, 0;
+    %set/v v0108EC40_0, 1, 1;
+    %set/v v0108EE50_0, 1, 1;
+    %set/v v0108EAE0_0, 0, 1;
+    %set/v v0108F218_0, 1, 1;
+    %delay 10, 0;
+    %vpi_call 2 51 "$finish";
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "full_adder_subtractor.v";

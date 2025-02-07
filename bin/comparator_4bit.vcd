@@ -1,0 +1,60 @@
+$date
+	Sat Sep 28 08:06:43 2024
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module test_comparator_4bit $end
+$var wire 1 ! A_equal $end
+$var wire 1 " A_greater $end
+$var wire 1 # A_less $end
+$var reg 4 $ A [3:0] $end
+$var reg 4 % B [3:0] $end
+$scope module uut $end
+$var wire 4 & A [3:0] $end
+$var wire 1 ! A_equal $end
+$var wire 1 " A_greater $end
+$var wire 1 # A_less $end
+$var wire 4 ' B [3:0] $end
+$var wire 4 ( eq [3:0] $end
+$var wire 4 ) gt [3:0] $end
+$var wire 4 * lt [3:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b0x *
+b100 )
+b1xxx (
+b1001 '
+b1100 &
+b1001 %
+b1100 $
+x#
+1"
+x!
+$end
+#10
+0"
+0#
+b0 *
+b0 )
+b110 %
+b110 '
+b110 $
+b110 &
+#20
+1#
+0"
+b1000 *
+b0xxx (
+b0 )
+b1011 %
+b1011 '
+b11 $
+b11 &
+#30

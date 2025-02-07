@@ -1,0 +1,127 @@
+#! /c/iverilog/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_009AD198 .scope module, "tb_shift_register" "tb_shift_register" 2 36;
+ .timescale 0 0;
+v01172940_0 .var "clk", 0 0;
+v009A3810_0 .var "in_data", 7 0;
+v009A3868_0 .var "load", 0 0;
+v009A38C0_0 .net "q", 7 0, v009AAE30_0; 1 drivers
+v009A7740_0 .var "reset", 0 0;
+v009A7798_0 .var "shift_left", 0 0;
+v009A77F0_0 .var "shift_right", 0 0;
+S_009AD5D8 .scope module, "uut" "shift_register" 2 43, 2 4, S_009AD198;
+ .timescale 0 0;
+P_009AE9AC .param/l "N" 2 4, +C4<01000>;
+v009A2D18_0 .net "clk", 0 0, v01172940_0; 1 drivers
+v009AEF08_0 .net "in_data", 7 0, v009A3810_0; 1 drivers
+v009AEF60_0 .net "load", 0 0, v009A3868_0; 1 drivers
+v009AAE30_0 .var "q", 7 0;
+v009AAE88_0 .net "reset", 0 0, v009A7740_0; 1 drivers
+v009AAEE0_0 .net "shift_left", 0 0, v009A7798_0; 1 drivers
+v01172890_0 .var "shift_reg", 7 0;
+v011728E8_0 .net "shift_right", 0 0, v009A77F0_0; 1 drivers
+E_009AE9C8 .event edge, v01172890_0;
+E_009AE348 .event posedge, v009AAE88_0, v009A2D18_0;
+    .scope S_009AD5D8;
+T_0 ;
+    %wait E_009AE348;
+    %load/v 8, v009AAE88_0, 1;
+    %jmp/0xz  T_0.0, 8;
+    %ix/load 0, 8, 0;
+    %assign/v0 v01172890_0, 0, 0;
+    %jmp T_0.1;
+T_0.0 ;
+    %load/v 8, v009AEF60_0, 1;
+    %jmp/0xz  T_0.2, 8;
+    %load/v 8, v009AEF08_0, 8;
+    %ix/load 0, 8, 0;
+    %assign/v0 v01172890_0, 0, 8;
+    %jmp T_0.3;
+T_0.2 ;
+    %load/v 8, v009AAEE0_0, 1;
+    %jmp/0xz  T_0.4, 8;
+    %mov 8, 0, 1;
+    %load/v 9, v01172890_0, 7; Select 7 out of 8 bits
+    %ix/load 0, 8, 0;
+    %assign/v0 v01172890_0, 0, 8;
+    %jmp T_0.5;
+T_0.4 ;
+    %load/v 8, v011728E8_0, 1;
+    %jmp/0xz  T_0.6, 8;
+    %ix/load 1, 1, 0;
+    %mov 4, 0, 1;
+    %jmp/1 T_0.8, 4;
+    %load/x1p 16, v01172890_0, 7;
+    %jmp T_0.9;
+T_0.8 ;
+    %mov 16, 2, 7;
+T_0.9 ;
+    %mov 8, 16, 7; Move signal select into place
+    %mov 15, 0, 1;
+    %ix/load 0, 8, 0;
+    %assign/v0 v01172890_0, 0, 8;
+T_0.6 ;
+T_0.5 ;
+T_0.3 ;
+T_0.1 ;
+    %jmp T_0;
+    .thread T_0;
+    .scope S_009AD5D8;
+T_1 ;
+    %wait E_009AE9C8;
+    %load/v 8, v01172890_0, 8;
+    %set/v v009AAE30_0, 8, 8;
+    %jmp T_1;
+    .thread T_1, $push;
+    .scope S_009AD198;
+T_2 ;
+    %delay 5, 0;
+    %load/v 8, v01172940_0, 1;
+    %inv 8, 1;
+    %set/v v01172940_0, 8, 1;
+    %jmp T_2;
+    .thread T_2;
+    .scope S_009AD198;
+T_3 ;
+    %set/v v01172940_0, 0, 1;
+    %set/v v009A7740_0, 0, 1;
+    %set/v v009A3868_0, 0, 1;
+    %set/v v009A7798_0, 0, 1;
+    %set/v v009A77F0_0, 0, 1;
+    %movi 8, 170, 8;
+    %set/v v009A3810_0, 8, 8;
+    %vpi_call 2 66 "$dumpfile", "shift_register.vcd";
+    %vpi_call 2 67 "$dumpvars", 1'sb0, S_009AD198;
+    %delay 10, 0;
+    %set/v v009A7740_0, 1, 1;
+    %delay 10, 0;
+    %set/v v009A7740_0, 0, 1;
+    %delay 10, 0;
+    %set/v v009A3868_0, 1, 1;
+    %delay 10, 0;
+    %set/v v009A3868_0, 0, 1;
+    %delay 10, 0;
+    %set/v v009A7798_0, 1, 1;
+    %delay 10, 0;
+    %set/v v009A7798_0, 0, 1;
+    %delay 10, 0;
+    %set/v v009A77F0_0, 1, 1;
+    %delay 10, 0;
+    %set/v v009A77F0_0, 0, 1;
+    %vpi_call 2 86 "$finish";
+    %end;
+    .thread T_3;
+    .scope S_009AD198;
+T_4 ;
+    %vpi_call 2 91 "$monitor", "Time = %t, q = %b", $time, v009A38C0_0;
+    %end;
+    .thread T_4;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "shift_register.v";

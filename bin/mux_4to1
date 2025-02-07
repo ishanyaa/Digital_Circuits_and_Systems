@@ -1,0 +1,100 @@
+#! /c/iverilog/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_011BDEA0 .scope module, "tb_mux_4to1" "tb_mux_4to1" 2 26;
+ .timescale 0 0;
+v0107FF60_0 .var "I0", 0 0;
+v0107FFB8_0 .var "I1", 0 0;
+v0107FAE8_0 .var "I2", 0 0;
+v0107FB40_0 .var "I3", 0 0;
+v01080010_0 .var "S", 1 0;
+v0107F8D8_0 .net "Y", 0 0, L_011BADF8; 1 drivers
+S_011BE148 .scope module, "mux" "mux_4to1" 2 33, 2 1, S_011BDEA0;
+ .timescale 0 0;
+L_011B3B00 .functor NOT 1, L_01080508, C4<0>, C4<0>, C4<0>;
+L_011B8048 .functor NOT 1, L_010804B0, C4<0>, C4<0>, C4<0>;
+L_011B80B8 .functor AND 1, L_011B8048, L_011B3B00, v0107FF60_0, C4<1>;
+L_011BAC38 .functor AND 1, L_011B8048, L_01080980, v0107FFB8_0, C4<1>;
+L_011BACE0 .functor AND 1, L_010802A0, L_011B3B00, v0107FAE8_0, C4<1>;
+L_011BAD50 .functor AND 1, L_01080560, L_01080198, v0107FB40_0, C4<1>;
+L_011BADF8 .functor OR 1, L_011B80B8, L_011BAC38, L_011BACE0, L_011BAD50;
+v011B3A00_0 .net "I0", 0 0, v0107FF60_0; 1 drivers
+v011B3A58_0 .net "I1", 0 0, v0107FFB8_0; 1 drivers
+v0107FE00_0 .net "I2", 0 0, v0107FAE8_0; 1 drivers
+v0107FCA0_0 .net "I3", 0 0, v0107FB40_0; 1 drivers
+v0107F930_0 .net "S", 1 0, v01080010_0; 1 drivers
+v0107FDA8_0 .net "S0_bar", 0 0, L_011B3B00; 1 drivers
+v0107FB98_0 .net "S1_bar", 0 0, L_011B8048; 1 drivers
+v0107FE58_0 .alias "Y", 0 0, v0107F8D8_0;
+v0107FA90_0 .net "Y0", 0 0, L_011B80B8; 1 drivers
+v0107FC48_0 .net "Y1", 0 0, L_011BAC38; 1 drivers
+v0107F988_0 .net "Y2", 0 0, L_011BACE0; 1 drivers
+v0107FA38_0 .net "Y3", 0 0, L_011BAD50; 1 drivers
+v0107FCF8_0 .net *"_s12", 0 0, L_010802A0; 1 drivers
+v0107FEB0_0 .net *"_s15", 0 0, L_01080560; 1 drivers
+v0107F9E0_0 .net *"_s17", 0 0, L_01080198; 1 drivers
+v0107FBF0_0 .net *"_s2", 0 0, L_01080508; 1 drivers
+v0107FF08_0 .net *"_s5", 0 0, L_010804B0; 1 drivers
+v0107FD50_0 .net *"_s9", 0 0, L_01080980; 1 drivers
+L_01080508 .part v01080010_0, 0, 1;
+L_010804B0 .part v01080010_0, 1, 1;
+L_01080980 .part v01080010_0, 0, 1;
+L_010802A0 .part v01080010_0, 1, 1;
+L_01080560 .part v01080010_0, 1, 1;
+L_01080198 .part v01080010_0, 0, 1;
+    .scope S_011BDEA0;
+T_0 ;
+    %vpi_call 2 37 "$dumpfile", "mux_4to1.vcd";
+    %vpi_call 2 38 "$dumpvars", 1'sb0, S_011BDEA0;
+    %vpi_call 2 42 "$monitor", "Time = %0d | S1 = %b, S0 = %b | I0 = %b, I1 = %b, I2 = %b, I3 = %b | Y = %b", $time, &PV<v01080010_0, 1, 1>, &PV<v01080010_0, 0, 1>, v0107FF60_0, v0107FFB8_0, v0107FAE8_0, v0107FB40_0, v0107F8D8_0;
+    %set/v v0107FF60_0, 1, 1;
+    %set/v v0107FFB8_0, 0, 1;
+    %set/v v0107FAE8_0, 0, 1;
+    %set/v v0107FB40_0, 0, 1;
+    %set/v v01080010_0, 0, 2;
+    %delay 10, 0;
+    %set/v v0107FF60_0, 0, 1;
+    %set/v v0107FFB8_0, 1, 1;
+    %set/v v0107FAE8_0, 0, 1;
+    %set/v v0107FB40_0, 0, 1;
+    %movi 8, 1, 2;
+    %set/v v01080010_0, 8, 2;
+    %delay 10, 0;
+    %set/v v0107FF60_0, 0, 1;
+    %set/v v0107FFB8_0, 0, 1;
+    %set/v v0107FAE8_0, 1, 1;
+    %set/v v0107FB40_0, 0, 1;
+    %movi 8, 2, 2;
+    %set/v v01080010_0, 8, 2;
+    %delay 10, 0;
+    %set/v v0107FF60_0, 0, 1;
+    %set/v v0107FFB8_0, 0, 1;
+    %set/v v0107FAE8_0, 0, 1;
+    %set/v v0107FB40_0, 1, 1;
+    %set/v v01080010_0, 1, 2;
+    %delay 10, 0;
+    %set/v v0107FF60_0, 1, 1;
+    %set/v v0107FFB8_0, 0, 1;
+    %set/v v0107FAE8_0, 1, 1;
+    %set/v v0107FB40_0, 0, 1;
+    %set/v v01080010_0, 0, 2;
+    %delay 10, 0;
+    %movi 8, 1, 2;
+    %set/v v01080010_0, 8, 2;
+    %delay 10, 0;
+    %movi 8, 2, 2;
+    %set/v v01080010_0, 8, 2;
+    %delay 10, 0;
+    %set/v v01080010_0, 1, 2;
+    %delay 10, 0;
+    %vpi_call 2 61 "$finish";
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "mux_4to1.v";

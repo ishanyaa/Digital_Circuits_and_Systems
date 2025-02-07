@@ -1,0 +1,91 @@
+$date
+	Sat Nov 23 12:48:17 2024
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module test_priority_encoder_8_to_3 $end
+$var wire 3 ! Y [2:0] $end
+$var wire 1 " valid $end
+$var reg 8 # A [7:0] $end
+$scope module my_encoder $end
+$var wire 8 $ A [7:0] $end
+$var reg 3 % Y [2:0] $end
+$var reg 1 & valid $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+0&
+b0 %
+b0 $
+b0 #
+0"
+b0 !
+$end
+#10
+1&
+1"
+b1 #
+b1 $
+#20
+b1 %
+b1 !
+1&
+1"
+b10 #
+b10 $
+#30
+1&
+1"
+b10 %
+b10 !
+b100 #
+b100 $
+#40
+1&
+1"
+b11 %
+b11 !
+b1000 #
+b1000 $
+#50
+1&
+1"
+b100 %
+b100 !
+b10000 #
+b10000 $
+#60
+1&
+1"
+b101 %
+b101 !
+b100000 #
+b100000 $
+#70
+1&
+1"
+b110 %
+b110 !
+b1000000 #
+b1000000 $
+#80
+1&
+1"
+b111 %
+b111 !
+b10000000 #
+b10000000 $
+#90
+1&
+1"
+b111 %
+b111 !
+b11111111 #
+b11111111 $
+#100

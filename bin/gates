@@ -1,0 +1,76 @@
+#! /c/iverilog/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0111A1A8 .scope module, "testbench" "testbench" 2 30;
+ .timescale 0 0;
+v01174F60_0 .var "a", 0 0;
+v01174E00_0 .net "and_out", 0 0, L_01112CD8; 1 drivers
+v01174E58_0 .var "b", 0 0;
+v01174DA8_0 .var "c", 0 0;
+v01174F08_0 .net "or_out", 0 0, L_0111EDA0; 1 drivers
+S_01119350 .scope module, "u1" "and_gate" 2 35, 2 2, S_0111A1A8;
+ .timescale 0 0;
+L_01113B68 .functor AND 1, v01174F60_0, v01174E58_0, C4<1>, C4<1>;
+L_01112CD8 .functor AND 1, L_01113B68, v01174DA8_0, C4<1>, C4<1>;
+v01117AC0_0 .net "a", 0 0, v01174F60_0; 1 drivers
+v01117B18_0 .net "ab_and", 0 0, L_01113B68; 1 drivers
+v01117B70_0 .net "b", 0 0, v01174E58_0; 1 drivers
+v01112C80_0 .net "c", 0 0, v01174DA8_0; 1 drivers
+v01175118_0 .alias "y", 0 0, v01174E00_0;
+S_01119E78 .scope module, "u2" "or_gate" 2 43, 2 16, S_0111A1A8;
+ .timescale 0 0;
+L_01112D80 .functor OR 1, v01174F60_0, v01174E58_0, C4<0>, C4<0>;
+L_0111EDA0 .functor OR 1, L_01112D80, v01174DA8_0, C4<0>, C4<0>;
+v011186E0_0 .alias "a", 0 0, v01117AC0_0;
+v01118738_0 .net "ab_or", 0 0, L_01112D80; 1 drivers
+v01113A60_0 .alias "b", 0 0, v01117B70_0;
+v01113AB8_0 .alias "c", 0 0, v01112C80_0;
+v01113B10_0 .alias "y", 0 0, v01174F08_0;
+    .scope S_0111A1A8;
+T_0 ;
+    %vpi_call 2 51 "$dumpfile", "gates.vcd";
+    %vpi_call 2 52 "$dumpvars", 1'sb0, S_0111A1A8;
+    %vpi_call 2 54 "$monitor", "Time: %0t | a: %b, b: %b, c: %b | AND Output: %b | OR Output: %b", $time, v01174F60_0, v01174E58_0, v01174DA8_0, v01174E00_0, v01174F08_0;
+    %set/v v01174F60_0, 0, 1;
+    %set/v v01174E58_0, 0, 1;
+    %set/v v01174DA8_0, 0, 1;
+    %delay 10, 0;
+    %set/v v01174F60_0, 0, 1;
+    %set/v v01174E58_0, 0, 1;
+    %set/v v01174DA8_0, 1, 1;
+    %delay 10, 0;
+    %set/v v01174F60_0, 0, 1;
+    %set/v v01174E58_0, 1, 1;
+    %set/v v01174DA8_0, 0, 1;
+    %delay 10, 0;
+    %set/v v01174F60_0, 0, 1;
+    %set/v v01174E58_0, 1, 1;
+    %set/v v01174DA8_0, 1, 1;
+    %delay 10, 0;
+    %set/v v01174F60_0, 1, 1;
+    %set/v v01174E58_0, 0, 1;
+    %set/v v01174DA8_0, 0, 1;
+    %delay 10, 0;
+    %set/v v01174F60_0, 1, 1;
+    %set/v v01174E58_0, 0, 1;
+    %set/v v01174DA8_0, 1, 1;
+    %delay 10, 0;
+    %set/v v01174F60_0, 1, 1;
+    %set/v v01174E58_0, 1, 1;
+    %set/v v01174DA8_0, 0, 1;
+    %delay 10, 0;
+    %set/v v01174F60_0, 1, 1;
+    %set/v v01174E58_0, 1, 1;
+    %set/v v01174DA8_0, 1, 1;
+    %delay 10, 0;
+    %vpi_call 2 67 "$finish";
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "gates.v";

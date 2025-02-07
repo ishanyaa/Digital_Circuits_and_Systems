@@ -1,0 +1,74 @@
+#! /c/iverilog/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_010DEC38 .scope module, "tb_logic_function" "tb_logic_function" 2 25;
+ .timescale 0 0;
+v01134DF0_0 .var "A", 0 0;
+v01135160_0 .var "B", 0 0;
+v01134EF8_0 .var "C", 0 0;
+v01135210_0 .net "F", 0 0, L_010DACE8; 1 drivers
+S_010DEBB0 .scope module, "uut" "logic_function" 2 32, 2 1, S_010DEC38;
+ .timescale 0 0;
+L_010DEFB0 .functor NOT 1, v01134DF0_0, C4<0>, C4<0>, C4<0>;
+L_010D4960 .functor NOT 1, v01135160_0, C4<0>, C4<0>, C4<0>;
+L_010D3848 .functor NOT 1, v01134EF8_0, C4<0>, C4<0>, C4<0>;
+L_010D38B8 .functor AND 1, L_010DEFB0, v01135160_0, C4<1>, C4<1>;
+L_010DAE70 .functor AND 1, L_010D4960, L_010D3848, C4<1>, C4<1>;
+L_010DAEA8 .functor AND 1, L_010DEFB0, v01135160_0, v01134EF8_0, C4<1>;
+L_010DACE8 .functor OR 1, L_010D38B8, L_010DAE70, L_010DAEA8, C4<0>;
+v010DC418_0 .net "A", 0 0, v01134DF0_0; 1 drivers
+v010DEF58_0 .net "B", 0 0, v01135160_0; 1 drivers
+v010D48D0_0 .net "C", 0 0, v01134EF8_0; 1 drivers
+v01135058_0 .alias "F", 0 0, v01135210_0;
+v01135000_0 .net "notA", 0 0, L_010DEFB0; 1 drivers
+v011351B8_0 .net "notB", 0 0, L_010D4960; 1 drivers
+v01134D98_0 .net "notC", 0 0, L_010D3848; 1 drivers
+v01134FA8_0 .net "term1", 0 0, L_010D38B8; 1 drivers
+v011350B0_0 .net "term2", 0 0, L_010DAE70; 1 drivers
+v01135108_0 .net "term3", 0 0, L_010DAEA8; 1 drivers
+    .scope S_010DEC38;
+T_0 ;
+    %vpi_call 2 42 "$monitor", "A = %b, B = %b, C = %b, F = %b", v01134DF0_0, v01135160_0, v01134EF8_0, v01135210_0;
+    %set/v v01134DF0_0, 0, 1;
+    %set/v v01135160_0, 0, 1;
+    %set/v v01134EF8_0, 0, 1;
+    %delay 10, 0;
+    %set/v v01134DF0_0, 0, 1;
+    %set/v v01135160_0, 0, 1;
+    %set/v v01134EF8_0, 1, 1;
+    %delay 10, 0;
+    %set/v v01134DF0_0, 0, 1;
+    %set/v v01135160_0, 1, 1;
+    %set/v v01134EF8_0, 0, 1;
+    %delay 10, 0;
+    %set/v v01134DF0_0, 0, 1;
+    %set/v v01135160_0, 1, 1;
+    %set/v v01134EF8_0, 1, 1;
+    %delay 10, 0;
+    %set/v v01134DF0_0, 1, 1;
+    %set/v v01135160_0, 0, 1;
+    %set/v v01134EF8_0, 0, 1;
+    %delay 10, 0;
+    %set/v v01134DF0_0, 1, 1;
+    %set/v v01135160_0, 0, 1;
+    %set/v v01134EF8_0, 1, 1;
+    %delay 10, 0;
+    %set/v v01134DF0_0, 1, 1;
+    %set/v v01135160_0, 1, 1;
+    %set/v v01134EF8_0, 0, 1;
+    %delay 10, 0;
+    %set/v v01134DF0_0, 1, 1;
+    %set/v v01135160_0, 1, 1;
+    %set/v v01134EF8_0, 1, 1;
+    %delay 10, 0;
+    %vpi_call 2 55 "$finish";
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "logic_function.v";

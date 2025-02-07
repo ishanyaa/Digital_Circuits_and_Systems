@@ -1,0 +1,57 @@
+#! /c/iverilog/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_00998B40 .scope module, "test_adder_subtractor" "test_adder_subtractor" 2 22;
+ .timescale 0 0;
+v0099D9B8_0 .var "A", 0 0;
+v0099D8B0_0 .var "B", 0 0;
+v0099DA10_0 .net "Borrow", 0 0, L_009948F0; 1 drivers
+v0099DB70_0 .net "Carry", 0 0, L_009938D8; 1 drivers
+v0099DFE8_0 .net "Diff", 0 0, L_009944D8; 1 drivers
+v0099DA68_0 .net "Sum", 0 0, L_00993868; 1 drivers
+S_00998D60 .scope module, "HA" "half_adder" 2 27, 2 4, S_00998B40;
+ .timescale 0 0;
+L_00993868 .functor XOR 1, v0099D9B8_0, v0099D8B0_0, C4<0>, C4<0>;
+L_009938D8 .functor AND 1, v0099D9B8_0, v0099D8B0_0, C4<1>, C4<1>;
+v00999A50_0 .net "A", 0 0, v0099D9B8_0; 1 drivers
+v00993810_0 .net "B", 0 0, v0099D8B0_0; 1 drivers
+v0099DBC8_0 .alias "Carry", 0 0, v0099DB70_0;
+v0099DAC0_0 .alias "Sum", 0 0, v0099DA68_0;
+S_00998920 .scope module, "HS" "half_subtractor" 2 30, 2 13, S_00998B40;
+ .timescale 0 0;
+L_009944D8 .functor XOR 1, v0099D9B8_0, v0099D8B0_0, C4<0>, C4<0>;
+L_009948F0 .functor AND 1, L_00997C78, v0099D8B0_0, C4<1>, C4<1>;
+L_00997C78 .functor NOT 1, v0099D9B8_0, C4<0>, C4<0>, C4<0>;
+v009943D0_0 .alias "A", 0 0, v00999A50_0;
+v00994428_0 .alias "B", 0 0, v00993810_0;
+v00994480_0 .alias "Borrow", 0 0, v0099DA10_0;
+v009999A0_0 .alias "Diff", 0 0, v0099DFE8_0;
+v009999F8_0 .net *"_s2", 0 0, L_00997C78; 1 drivers
+    .scope S_00998B40;
+T_0 ;
+    %vpi_call 2 33 "$dumpfile", "adder_subtractor.vcd";
+    %vpi_call 2 34 "$dumpvars", 1'sb0, S_00998B40;
+    %set/v v0099D9B8_0, 0, 1;
+    %set/v v0099D8B0_0, 0, 1;
+    %delay 10, 0;
+    %set/v v0099D9B8_0, 0, 1;
+    %set/v v0099D8B0_0, 1, 1;
+    %delay 10, 0;
+    %set/v v0099D9B8_0, 1, 1;
+    %set/v v0099D8B0_0, 0, 1;
+    %delay 10, 0;
+    %set/v v0099D9B8_0, 1, 1;
+    %set/v v0099D8B0_0, 1, 1;
+    %delay 10, 0;
+    %vpi_call 2 41 "$monitor", "Time = %0d : A = %b, B = %b | Sum = %b, Carry = %b | Diff = %b, Borrow = %b", $time, v0099D9B8_0, v0099D8B0_0, v0099DA68_0, v0099DB70_0, v0099DFE8_0, v0099DA10_0;
+    %vpi_call 2 43 "$finish";
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "adder_subtractor.v";

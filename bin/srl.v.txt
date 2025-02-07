@@ -1,0 +1,70 @@
+// SR Latch
+
+module srl(input s, r, en, output reg q, qn);
+
+always @(*)
+begin
+
+if (en)
+begin
+
+if (s && ~r)
+begin
+q = 1;
+qn = 0;
+end
+
+else if (~s && r)
+begin
+q = 0;
+qn = 1;
+end
+
+else if(~s && ~r)
+begin
+q = q;
+qn = qn;
+end
+
+else
+begin
+q = 1'bx;
+qn = 1'bx;
+end 
+end
+end
+
+endmodule
+
+
+module tb_srl;
+reg s, r, en;
+wire q, qn;
+
+srl uut(.s(s), .r(r), .q(q), .qn(qn));
+
+initial begin
+
+$dumpfile("srl.vcd");
+$dumpvars(0, tb_srl);
+
+$monitor("Time = %t, s = %b, r = %b, q = %b, qn = %b", $time, s,rq, qn);
+
+en = 0; s = 0; r = 1;
+#10; en = 1; s = 0; r = 1;
+#10; en = 1; s = 0; r = 1;
+#10; en = 1; s = 1; r = 1;
+#10; en = 1; s = 1; r = 0;
+#10; en = 0; s = 1; r = 1;
+$finish;
+
+end
+
+endmodule
+
+
+
+
+
+
+

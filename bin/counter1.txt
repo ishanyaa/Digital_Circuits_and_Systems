@@ -1,0 +1,49 @@
+module counter1(input clk, reset, en, output reg [2:0] count);
+
+always @ (posedge clk or negedge reset)
+begin
+if (reset)
+count <= 3'b111;
+
+else if (en)
+else (count > 0)
+count <= count -1;
+else 
+count <= 3b'111'
+
+end
+endmodule
+
+
+module tb_counter1;
+reg clk, reset, en;
+wire [2:0] count;
+
+counter1 uut(.(clk), .reset(reset), .en(en), .count(count));
+
+always #5 clk = ~clk;
+
+initial begin
+clk = 0; reset = 0; en = 0;
+
+$dumpfile("counter1.vcd");
+$dumpvars(0, tb_counter1);
+
+$monitor("Time = %t, count = %b", $time, count);
+
+#10; reset = 1;
+#10; reset = 0;
+
+#10; en = 1;
+#10; en = 0;
+
+$finish;
+
+end
+
+endmodule
+
+
+
+
+ 

@@ -1,0 +1,78 @@
+$date
+	Sat Sep 28 00:23:20 2024
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module testbench $end
+$var wire 1 ! and_out $end
+$var wire 1 " or_out $end
+$var reg 1 # a $end
+$var reg 1 $ b $end
+$var reg 1 % c $end
+$scope module u1 $end
+$var wire 1 & a $end
+$var wire 1 ' ab_and $end
+$var wire 1 ( b $end
+$var wire 1 ) c $end
+$var wire 1 ! y $end
+$upscope $end
+$scope module u2 $end
+$var wire 1 & a $end
+$var wire 1 * ab_or $end
+$var wire 1 ( b $end
+$var wire 1 ) c $end
+$var wire 1 " y $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+0*
+0)
+0(
+0'
+0&
+0%
+0$
+0#
+0"
+0!
+$end
+#10
+1"
+1%
+1)
+#20
+1*
+0%
+0)
+1$
+1(
+#30
+1%
+1)
+#40
+0%
+0)
+0$
+0(
+1#
+1&
+#50
+1%
+1)
+#60
+1'
+0%
+0)
+1$
+1(
+#70
+1!
+1%
+1)
+#80

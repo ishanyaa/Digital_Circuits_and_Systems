@@ -1,0 +1,58 @@
+#! /c/iverilog/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_01064C10 .scope module, "tb_multiply_by_2" "tb_multiply_by_2" 2 15;
+ .timescale 0 0;
+v01062C38_0 .var "A", 3 0;
+v01062C90_0 .net "Y", 4 0, v01062BE0_0; 1 drivers
+S_01064C98 .scope module, "multiplier" "multiply_by_2" 2 21, 2 1, S_01064C10;
+ .timescale 0 0;
+v010A2E48_0 .net "A", 3 0, v01062C38_0; 1 drivers
+v01062BE0_0 .var "Y", 4 0;
+E_010A1E70 .event edge, v010A2E48_0;
+    .scope S_01064C98;
+T_0 ;
+    %wait E_010A1E70;
+    %load/v 8, v010A2E48_0, 4;
+    %mov 12, 0, 1;
+    %ix/load 0, 1, 0;
+    %mov 4, 0, 1;
+    %shiftl/i0  8, 5;
+    %set/v v01062BE0_0, 8, 5;
+    %jmp T_0;
+    .thread T_0, $push;
+    .scope S_01064C10;
+T_1 ;
+    %vpi_call 2 24 "$dumpfile", "multiply_by_2.vcd";
+    %vpi_call 2 25 "$dumpvars", 1'sb0, S_01064C10;
+    %vpi_call 2 29 "$monitor", "Time = %0d | A = %b | Y = %b", $time, v01062C38_0, v01062C90_0;
+    %set/v v01062C38_0, 0, 4;
+    %delay 10, 0;
+    %movi 8, 1, 4;
+    %set/v v01062C38_0, 8, 4;
+    %delay 10, 0;
+    %movi 8, 2, 4;
+    %set/v v01062C38_0, 8, 4;
+    %delay 10, 0;
+    %movi 8, 3, 4;
+    %set/v v01062C38_0, 8, 4;
+    %delay 10, 0;
+    %movi 8, 4, 4;
+    %set/v v01062C38_0, 8, 4;
+    %delay 10, 0;
+    %movi 8, 8, 4;
+    %set/v v01062C38_0, 8, 4;
+    %delay 10, 0;
+    %set/v v01062C38_0, 1, 4;
+    %delay 10, 0;
+    %vpi_call 2 40 "$finish";
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "multiply_by_2.v";

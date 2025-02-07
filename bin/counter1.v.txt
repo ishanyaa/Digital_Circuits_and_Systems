@@ -1,0 +1,19 @@
+// 4-bit Binary Counter
+module counter(
+    input clk,    // Clock input
+    input rst,    // Reset input
+    output [3:0] count // 4-bit output count
+);
+    reg [3:0] count_reg; // Internal register to hold the count
+
+    // Always block that triggers on the rising edge of the clock
+    always @(posedge clk or posedge rst) begin
+        if (rst) begin
+            count_reg <= 4'b0000; // Reset count to 0
+        end else begin
+            count_reg <= count_reg + 1; // Increment count
+        end
+    end
+
+    assign count = count_reg; // Assign internal register to output
+endmodule

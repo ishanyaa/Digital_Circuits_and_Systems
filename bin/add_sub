@@ -1,0 +1,147 @@
+#! /c/iverilog/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_010DA918 .scope module, "tb_add_sub" "tb_add_sub" 2 70;
+ .timescale 0 0;
+v01110DA0_0 .var "A", 0 0;
+v01110DF8_0 .var "B", 0 0;
+v01110EA8_0 .var "Borrow_in", 0 0;
+RS_011140C4 .resolv tri, L_0113AE20, L_0113C0B0, C4<z>, C4<z>;
+v01110610_0 .net8 "Borrow_out", 0 0, RS_011140C4; 2 drivers
+v01110820_0 .var "Carry_in", 0 0;
+RS_01114154 .resolv tri, L_0113ADB0, L_0113AF00, C4<z>, C4<z>;
+v01111320_0 .net8 "Carry_out", 0 0, RS_01114154; 2 drivers
+RS_01114034 .resolv tri, L_0113AD78, L_0113C0E8, C4<z>, C4<z>;
+v01111218_0 .net8 "Difference", 0 0, RS_01114034; 2 drivers
+RS_01114124 .resolv tri, L_0113ADE8, L_0113AF70, C4<z>, C4<z>;
+v01111270_0 .net8 "Sum", 0 0, RS_01114124; 2 drivers
+S_010D9F88 .scope module, "HA" "half_adder" 2 76, 2 1, S_010DA918;
+ .timescale 0 0;
+L_0113ADE8 .functor XOR 1, v01110DA0_0, v01110DF8_0, C4<0>, C4<0>;
+L_0113ADB0 .functor AND 1, v01110DA0_0, v01110DF8_0, C4<1>, C4<1>;
+v011105B8_0 .net "A", 0 0, v01110DA0_0; 1 drivers
+v01110C40_0 .net "B", 0 0, v01110DF8_0; 1 drivers
+v011107C8_0 .alias "Carry", 0 0, v01111320_0;
+v01110E50_0 .alias "Sum", 0 0, v01111270_0;
+S_010DA560 .scope module, "HS" "half_subtractor" 2 79, 2 14, S_010DA918;
+ .timescale 0 0;
+L_0113AD78 .functor XOR 1, v01110DA0_0, v01110DF8_0, C4<0>, C4<0>;
+L_0113AE20 .functor AND 1, L_0113AF38, v01110DF8_0, C4<1>, C4<1>;
+L_0113AF38 .functor NOT 1, v01110DA0_0, C4<0>, C4<0>, C4<0>;
+v01110980_0 .alias "A", 0 0, v011105B8_0;
+v01110A30_0 .alias "B", 0 0, v01110C40_0;
+v01110A88_0 .alias "Borrow", 0 0, v01110610_0;
+v01110718_0 .alias "Difference", 0 0, v01111218_0;
+v01110AE0_0 .net *"_s2", 0 0, L_0113AF38; 1 drivers
+S_010DA670 .scope module, "FA" "full_adder" 2 82, 2 28, S_010DA918;
+ .timescale 0 0;
+L_0113AF00 .functor OR 1, L_0113AEC8, L_0113AE90, C4<0>, C4<0>;
+v01111008_0 .alias "A", 0 0, v011105B8_0;
+v01110770_0 .alias "B", 0 0, v01110C40_0;
+v011108D0_0 .net "Carry1", 0 0, L_0113AEC8; 1 drivers
+v01110CF0_0 .net "Carry2", 0 0, L_0113AE90; 1 drivers
+v01110BE8_0 .net "Carry_in", 0 0, v01110820_0; 1 drivers
+v011106C0_0 .alias "Carry_out", 0 0, v01111320_0;
+v011109D8_0 .alias "Sum", 0 0, v01111270_0;
+v01110878_0 .net "Sum1", 0 0, L_0113AE58; 1 drivers
+S_010DA120 .scope module, "HA1" "half_adder" 2 36, 2 1, S_010DA670;
+ .timescale 0 0;
+L_0113AE58 .functor XOR 1, v01110DA0_0, v01110DF8_0, C4<0>, C4<0>;
+L_0113AEC8 .functor AND 1, v01110DA0_0, v01110DF8_0, C4<1>, C4<1>;
+v01110F58_0 .alias "A", 0 0, v011105B8_0;
+v01110668_0 .alias "B", 0 0, v01110C40_0;
+v01111060_0 .alias "Carry", 0 0, v011108D0_0;
+v01110B90_0 .alias "Sum", 0 0, v01110878_0;
+S_010DA5E8 .scope module, "HA2" "half_adder" 2 39, 2 1, S_010DA670;
+ .timescale 0 0;
+L_0113AF70 .functor XOR 1, L_0113AE58, v01110820_0, C4<0>, C4<0>;
+L_0113AE90 .functor AND 1, L_0113AE58, v01110820_0, C4<1>, C4<1>;
+v01110C98_0 .alias "A", 0 0, v01110878_0;
+v01110928_0 .alias "B", 0 0, v01110BE8_0;
+v01110D48_0 .alias "Carry", 0 0, v01110CF0_0;
+v01110F00_0 .alias "Sum", 0 0, v01111270_0;
+S_010DA808 .scope module, "FS" "full_subtractor" 2 85, 2 47, S_010DA918;
+ .timescale 0 0;
+L_0113C0B0 .functor OR 1, L_0113AC98, L_0113C4A0, C4<0>, C4<0>;
+v01102398_0 .alias "A", 0 0, v011105B8_0;
+v01101DC0_0 .alias "B", 0 0, v01110C40_0;
+v01101E18_0 .net "Borrow1", 0 0, L_0113AC98; 1 drivers
+v011023F0_0 .net "Borrow2", 0 0, L_0113C4A0; 1 drivers
+v01101E70_0 .net "Borrow_in", 0 0, v01110EA8_0; 1 drivers
+v01101EC8_0 .alias "Borrow_out", 0 0, v01110610_0;
+v01110FB0_0 .net "Diff1", 0 0, L_0113AC60; 1 drivers
+v01110B38_0 .alias "Difference", 0 0, v01111218_0;
+S_010DA4D8 .scope module, "HS1" "half_subtractor" 2 55, 2 14, S_010DA808;
+ .timescale 0 0;
+L_0113AC60 .functor XOR 1, v01110DA0_0, v01110DF8_0, C4<0>, C4<0>;
+L_0113AC98 .functor AND 1, L_0113AD08, v01110DF8_0, C4<1>, C4<1>;
+L_0113AD08 .functor NOT 1, v01110DA0_0, C4<0>, C4<0>, C4<0>;
+v01101D68_0 .alias "A", 0 0, v011105B8_0;
+v01102290_0 .alias "B", 0 0, v01110C40_0;
+v01101CB8_0 .alias "Borrow", 0 0, v01101E18_0;
+v01101F78_0 .alias "Difference", 0 0, v01110FB0_0;
+v011022E8_0 .net *"_s2", 0 0, L_0113AD08; 1 drivers
+S_010DAB38 .scope module, "HS2" "half_subtractor" 2 58, 2 14, S_010DA808;
+ .timescale 0 0;
+L_0113C0E8 .functor XOR 1, L_0113AC60, v01110EA8_0, C4<0>, C4<0>;
+L_0113C4A0 .functor AND 1, L_0113C3C0, v01110EA8_0, C4<1>, C4<1>;
+L_0113C3C0 .functor NOT 1, L_0113AC60, C4<0>, C4<0>, C4<0>;
+v01101F20_0 .alias "A", 0 0, v01110FB0_0;
+v01102188_0 .alias "B", 0 0, v01101E70_0;
+v011021E0_0 .alias "Borrow", 0 0, v011023F0_0;
+v01102028_0 .alias "Difference", 0 0, v01111218_0;
+v01102238_0 .net *"_s2", 0 0, L_0113C3C0; 1 drivers
+    .scope S_010DA918;
+T_0 ;
+    %vpi_call 2 89 "$monitor", "Time = %0d | A = %b, B = %b, Cin = %b, Bin = %b | Sum = %b, Cout = %b | Diff = %b, Bout = %b", $time, v01110DA0_0, v01110DF8_0, v01110820_0, v01110EA8_0, v01111270_0, v01111320_0, v01111218_0, v01110610_0;
+    %set/v v01110DA0_0, 0, 1;
+    %set/v v01110DF8_0, 0, 1;
+    %set/v v01110820_0, 0, 1;
+    %set/v v01110EA8_0, 0, 1;
+    %delay 10, 0;
+    %set/v v01110DA0_0, 0, 1;
+    %set/v v01110DF8_0, 1, 1;
+    %set/v v01110820_0, 0, 1;
+    %set/v v01110EA8_0, 0, 1;
+    %delay 10, 0;
+    %set/v v01110DA0_0, 1, 1;
+    %set/v v01110DF8_0, 0, 1;
+    %set/v v01110820_0, 0, 1;
+    %set/v v01110EA8_0, 0, 1;
+    %delay 10, 0;
+    %set/v v01110DA0_0, 1, 1;
+    %set/v v01110DF8_0, 1, 1;
+    %set/v v01110820_0, 0, 1;
+    %set/v v01110EA8_0, 0, 1;
+    %delay 10, 0;
+    %set/v v01110DA0_0, 0, 1;
+    %set/v v01110DF8_0, 0, 1;
+    %set/v v01110820_0, 1, 1;
+    %set/v v01110EA8_0, 1, 1;
+    %delay 10, 0;
+    %set/v v01110DA0_0, 0, 1;
+    %set/v v01110DF8_0, 1, 1;
+    %set/v v01110820_0, 1, 1;
+    %set/v v01110EA8_0, 1, 1;
+    %delay 10, 0;
+    %set/v v01110DA0_0, 1, 1;
+    %set/v v01110DF8_0, 0, 1;
+    %set/v v01110820_0, 1, 1;
+    %set/v v01110EA8_0, 1, 1;
+    %delay 10, 0;
+    %set/v v01110DA0_0, 1, 1;
+    %set/v v01110DF8_0, 1, 1;
+    %set/v v01110820_0, 1, 1;
+    %set/v v01110EA8_0, 1, 1;
+    %delay 10, 0;
+    %vpi_call 2 104 "$finish";
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "add_sub.v";

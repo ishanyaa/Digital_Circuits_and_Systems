@@ -1,0 +1,56 @@
+$date
+	Fri Sep 27 12:52:06 2024
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module tb_multiply_by_2 $end
+$var wire 5 ! Y [4:0] $end
+$var reg 4 " A [3:0] $end
+$scope module multiplier $end
+$var wire 4 # A [3:0] $end
+$var reg 5 $ Y [4:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b0 $
+b0 #
+b0 "
+b0 !
+$end
+#10
+b10 $
+b10 !
+b1 "
+b1 #
+#20
+b100 $
+b100 !
+b10 "
+b10 #
+#30
+b110 $
+b110 !
+b11 "
+b11 #
+#40
+b1000 $
+b1000 !
+b100 "
+b100 #
+#50
+b10000 $
+b10000 !
+b1000 "
+b1000 #
+#60
+b11110 $
+b11110 !
+b1111 "
+b1111 #
+#70
