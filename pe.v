@@ -1,3 +1,4 @@
+//8 to 3 Priority Encoder 
 module pe(input [7:0] in, output reg [2:0] out);
 
 always @(*)
