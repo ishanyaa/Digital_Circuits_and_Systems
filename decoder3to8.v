@@ -1,4 +1,4 @@
-// A1 Q4
+// 3 to 8 Decoder
 
 module decoder3to8(input a2, a1, a0, output y0, y1, y2, y3, y4, y5, y6, y7);
     wire na2, na1, na0;
