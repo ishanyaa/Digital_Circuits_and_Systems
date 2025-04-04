@@ -1,3 +1,4 @@
+//2 to 4 Decoder
 module de2to4 (
     input [1:0] in,    // 2-bit input
     output reg [3:0] out // 4-bit output
