@@ -1,5 +1,4 @@
-/* Midsem Q5 */
-
+//Random Fucntion
 module fun(input a, b, c, output y);
 
 assign y = a & ~b | ~b & ~c | ~a & b & c;
