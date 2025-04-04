@@ -1,5 +1,4 @@
-//A1 Q3
-
+//Full Subtractor
 module fs(input a, b, c, output bo, d);
 wire na;
 wire x, y, z;
