@@ -18,9 +18,6 @@
 ## Overview
 
 This repository contains **Verilog practice questions and implementations** for the course *Digital Circuits and Systems (ECS 326/676)*.
-
-These codes were were **practice exercises for Computer Organization** in previous semester, and they can also serve as **supplementary practice material for this course**.
-
 The repository also includes the **course PPT** for reference: [Digital Circuits and Systems - Verilog PPT](https://github.com/ishanyaa/Digital_Circuits_and_Systems/blob/main/Ishanya_Verilog.pdf)
 
 ---
@@ -44,6 +41,16 @@ The repository also includes the **course PPT** for reference: [Digital Circuits
 
 4.  Check out the **PPT** in the repository for guidance and explanations of each topic: [Digital Circuits and Systems - Verilog PPT](https://github.com/ishanyaa/Digital_Circuits_and_Systems/blob/main/Ishanya_Verilog.pdf)
 
+
+---
+
+## References
+
+* **Course Material:** ECS 326/676 (2023-24) by Dr. Santanu Talukder
+* **Related Course:** ECS 409/609 Computer Organization (2024-25)
+* **Textbook:** *Digital Design* by Morris Mano (5th edition)
+* **Textbook:** *Digital Design and Computer Architecture*, Chapter 4, by Sarah Harris and David Harris
+* **External Resources:** YouTube and the Internet.
 ---
 
 ## Author
