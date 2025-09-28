@@ -2,8 +2,6 @@
 
 ## Course Information
 
-| Detail | Value |
-| :--- | :--- |
 | **Course** | Digital Circuits and Systems - Verilog |
 | **Course Code** | ECS 326/676 |
 | **Course Instructor** | [Dr. Santanu Talukder](https://sites.google.com/site/santanutalukderiiscnanoscience/principal-investigator) |
