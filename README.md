@@ -38,12 +38,12 @@ The repository includes implementations of:
    git clone https://github.com/ishanyaa/Digital_Circuits_and_Systems.git
 Navigate to the folder:
 
-bash
+```bash
 Copy code
 cd Digital_Circuits_and_Systems
 Compile and simulate Verilog files using Icarus Verilog or any Verilog simulator:
 
-bash
+```bash
 Copy code
 iverilog -o output_file file.v
 vvp output_file
