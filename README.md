@@ -22,6 +22,18 @@ The repository also includes the **course PPT** for reference: [Digital Circuits
 
 ---
 
+## Contents
+
+The repository includes implementations of:
+
+- **Basic logic gates and combinational circuits:** `and3.v`, `or3.v`, `fun.v`, `logic_function.v`  
+- **Arithmetic modules:** `FA.v`, `HA.v`, `cla_4bit.v`, `comp_4bit.v`, `comparator_4bit.v`  
+- **Multiplexers and decoders:** `mux2.v`, `mux2b.v`, `mux4.v`, `mux4b.v`, `decoder3to8.v`, `de2to4.v`, `en4to2.v`  
+- **Flip-flops and sequential circuits:** `ardff.v`, `counter.v`, `d3.v`, `q4.v`, `srl.v`, `pe.v`  
+- **Additional utility and practice files:** `fs.v`, `m2.v`, `SmilingSnail.v`, `bin/` folder containing Icarus Verilog binaries  
+
+---
+
 ## Usage
 
 1.  **Clone the repository:**
