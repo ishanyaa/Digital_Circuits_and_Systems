@@ -1,4 +1,4 @@
-# Digital_Circuits_and_Systems
+# Digital Circuits and Systems-ECS 326/676
 
 ## Course Information
 
@@ -48,6 +48,6 @@ The repository also includes the **course PPT** for reference: [Digital Circuits
 
 ## Author
 
-**Ishanya** – B.Tech in Electrical Engineering and Computer Science, IISER Bhopal
+**Ishanya** –Senior Undergrad, Department of Electrical Engineering and Computer Science, IISER Bhopal
 
 **Email:** [ishanya21@iiserb.ac.in](mailto:ishanya21@iiserb.ac.in)
