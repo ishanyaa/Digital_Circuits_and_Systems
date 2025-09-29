@@ -62,6 +62,7 @@ The repository includes implementations of:
 * **Textbook:** *Digital Design* by Morris Mano (5th edition)
 * **Textbook:** *Digital Design and Computer Architecture*, Chapter 4, by Sarah Harris and David Harris
 * **External Resources:** YouTube and the Internet.
+* https://paisimulation.blogspot.com/2020/02/running-verilog-code-using-visual.html
 ---
 
 ## Author
